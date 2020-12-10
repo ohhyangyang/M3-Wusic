@@ -14,7 +14,7 @@ const {
 
 // POST '/auth/signup'
 router.post('/signup', isNotLoggedIn, validationLogin, (req, res, next) => {
-  const { username, password, profileURL, description, location,  email, artistType, genre, instrument, spotifyLink, spotifyEmbed} = req.body;
+  const { username, password, email, artistType,instrument} = req.body;
 
   User.findOne({ username })
     .then( (foundUser) => {
@@ -28,7 +28,7 @@ router.post('/signup', isNotLoggedIn, validationLogin, (req, res, next) => {
         const salt = bcrypt.genSaltSync(saltRounds);
         const encryptedPassword = bcrypt.hashSync(password, salt);
 
-        User.create( { username, password: encryptedPassword, profileURL, description, location,  email, artistType, genre, instrument, spotifyLink, spotifyEmbed })
+        User.create( { username, password, email, artistType, instrument })
           .then( (createdUser) => {
             // set the `req.session.currentUser` using newly created user object, to trigger creation of the session and cookie
             createdUser.password = "*";

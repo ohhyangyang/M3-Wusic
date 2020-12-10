@@ -4,10 +4,11 @@ const Project = require('./../models/project.model');
 const User = require('./../models/user.model');
 const createError = require('http-errors');
 const uploader = require('./../config/cloudinary-setup')
+const {isLoggedIn} = require('./../helpers/middlewares')
 
 //POST   '/api/userUpload'   => upload user image
-router.post("/userupload", uploader.single("image"), (req, res, next) => {
-    console.log("file is: ", req.file);
+router.post("/userupload", isLoggedIn, uploader.single("profileURL"), (req, res, next) => {
+    // console.log("file is: ", req.file);
   
     if (!req.file) {
       next(new Error("No file uploaded!"));
@@ -20,7 +21,7 @@ router.post("/userupload", uploader.single("image"), (req, res, next) => {
 
 
 //GET   'api/users'   => get all users
-router.get("/users",(req,res,next)=>{
+router.get("/users", isLoggedIn, (req,res,next)=>{
     User
       .find()
       .then((allUsers)=>{
@@ -33,11 +34,12 @@ router.get("/users",(req,res,next)=>{
 })
 
 //GET  'api/users/:userId'  => show all the populated info of a user
-router.get('/users/:userId',(req,res,next)=>{
+router.get('/users/:userId', isLoggedIn, (req,res,next)=>{
     const {userId} = req.params
     User 
      .findById(userId)
-     .populate("projectsOwned")
+     .populate({path:"projectsOwned",populate:{path:'participants'}})
+     .populate({path:"projectsOwned",populate:{path:'requests'}})
      .populate("projectsJoined")
      .populate("likedUsers")
      .then((foundUser)=>{
@@ -49,7 +51,7 @@ router.get('/users/:userId',(req,res,next)=>{
 })
 
 //PUT  'api/users/:userId'  => edit profile
-router.put('/users/:userId',(req,res,next)=>{
+router.put('/users/:userId', isLoggedIn, (req,res,next)=>{
     const {userId} = req.params;
     const {username,profileURL,description,location,email,artistType,genre,instrument,spotifyLink,spotifyEmbed}=req.body
     User
@@ -63,7 +65,7 @@ router.put('/users/:userId',(req,res,next)=>{
 })
 
 //DELETE  'api/users/:userId'  => delete a profile
-router.delete('/users/:userId',(req,res,next)=>{
+router.delete('/users/:userId', isLoggedIn, (req,res,next)=>{
     const {userId} = req.params;
     User
      .findByIdAndRemove(userId)
@@ -78,7 +80,7 @@ router.delete('/users/:userId',(req,res,next)=>{
 })
 
 //GET 'api/users/like/:userId'  =>like a user
-router.get('/users/like/:userId',(req,res,next)=>{
+router.get('/users/like/:userId', isLoggedIn, (req,res,next)=>{
     const {userId} = req.params;
     const cookieGuyId = req.session.currentUser._id
     console.log("cookieGuyId",cookieGuyId)

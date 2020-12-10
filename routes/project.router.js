@@ -5,10 +5,11 @@ const User = require('./../models/user.model');
 const createError = require('http-errors');
 const uploader = require('./../config/cloudinary-setup')
 const mongoose = require('mongoose')
+const {isLoggedIn} = require('./../helpers/middlewares')
 
 //POST   '/api//projectUpload'   => upload project image
-router.post("/projectupload", uploader.single("image"), (req, res, next) => {
-    console.log("file is: ", req.file);
+router.post("/projectupload",  isLoggedIn, uploader.single("coverURL"), (req, res, next) => {
+    // console.log("file is: ", req.file);
   
     if (!req.file) {
       next(new Error("No file uploaded!"));
@@ -22,7 +23,7 @@ router.post("/projectupload", uploader.single("image"), (req, res, next) => {
 
 
 //GET  '/api//projects'   => get all the projects
-router.get('/projects',(req,res,next)=>{
+router.get('/projects', isLoggedIn, (req,res,next)=>{
     Project
        .find()
        .populate('owner')
@@ -37,7 +38,7 @@ router.get('/projects',(req,res,next)=>{
 })
 
 //POST  '/api//projects'   => create a project
-router.post('/projects',(req,res,next)=>{
+router.post('/projects', isLoggedIn, (req,res,next)=>{
     const {title,type,lookingFor, location, fee, coverURL, description} = req.body;
     
     //filter input value
@@ -61,7 +62,7 @@ router.post('/projects',(req,res,next)=>{
 
 
 //GET  '/api/projects/:projectId'   => show a project detail
-router.get('/projects/:projectId', (req, res, next) => {
+router.get('/projects/:projectId',  isLoggedIn, (req, res, next) => {
 
     const { projectId } = req.params;
 
@@ -80,7 +81,7 @@ router.get('/projects/:projectId', (req, res, next) => {
 
 
 //PUT  '/api/projects/:projectId'   => edit a project
-router.put('/projects/:projectId', (req,res,next)=>{
+router.put('/projects/:projectId', isLoggedIn,  (req,res,next)=>{
     const {projectId} = req.params;
     const {title,type,lookingFor, location, fee, coverURL, description, status} = req.body;
 
@@ -96,7 +97,7 @@ router.put('/projects/:projectId', (req,res,next)=>{
 })
 
 //DELETE  '/api/projects/:projectId'   => delete a project
-router.delete('/projects/:projectId',(req,res,next)=>{
+router.delete('/projects/:projectId', isLoggedIn, (req,res,next)=>{
     const {projectId} = req.params;
 
     Project.findByIdAndRemove(projectId)
@@ -111,7 +112,7 @@ router.delete('/projects/:projectId',(req,res,next)=>{
 })
 
 //GET /api/projects/acceptation/:projectId/:userId  => change a user from project requests to project participants
-router.get('/projects/acceptation/:projectId/:userId',(req,res,next)=>{
+router.get('/projects/acceptation/:projectId/:userId', isLoggedIn, (req,res,next)=>{
     const {projectId,userId} = req.params;
 
     Project
@@ -134,7 +135,7 @@ router.get('/projects/acceptation/:projectId/:userId',(req,res,next)=>{
 })
 
 //GET /api/projects/rejection/:projectId/:userId  => change a user from project requests to project participants
-router.get('/projects/rejection/:projectId/:userId',(req,res,next)=>{
+router.get('/projects/rejection/:projectId/:userId', isLoggedIn, (req,res,next)=>{
     const {projectId,userId} = req.params;
 
     Project
@@ -151,7 +152,7 @@ router.get('/projects/rejection/:projectId/:userId',(req,res,next)=>{
 })
 
 //GET /api/projects/request/:projectId/:userId => send a request of project
-router.get('/projects/request/:projectId/:userId',(req,res,next)=>{
+router.get('/projects/request/:projectId/:userId', isLoggedIn, (req,res,next)=>{
     const {projectId,userId} = req.params;
 
     Project

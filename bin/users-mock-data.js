@@ -10,7 +10,7 @@ const users= [
         artistType:["Singer","Songwriter"],  //checkbox  https://soundbetter.com/s
         genre:"Pop-rock, rock",
         instrument:["Keyboard","Drum"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/6Rv0ndBVPEQJ7KagPDtC5H?si=ES2qtinOTr2IPYiIyEt0VA",
+        spotifyLink:"https://open.spotify.com/artist/6Rv0ndBVPEQJ7KagPDtC5H?si=ES2qtinOTr2IPYiIyEt0VA",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/6Rv0ndBVPEQJ7KagPDtC5H" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -26,7 +26,7 @@ const users= [
         location:"New York",
         genre:"Rock",
         instrument:["Guitar", "Drum"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/0oSGxfWSnnOXhD2fKuz2Gy",
+        spotifyLink:"https://open.spotify.com/artist/0oSGxfWSnnOXhD2fKuz2Gy",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/0oSGxfWSnnOXhD2fKuz2Gy" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -42,7 +42,7 @@ const users= [
         location:"California",
         genre:"Pop rock, indie pop, alternative music, folk rock",
         instrument:["Guitar", "Accordion"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/2QWIScpFDNxmS6ZEMIUvgm?si=P_klEPanRIeVrN14uyi0aw",
+        spotifyLink:"https://open.spotify.com/artist/2QWIScpFDNxmS6ZEMIUvgm?si=P_klEPanRIeVrN14uyi0aw",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/2QWIScpFDNxmS6ZEMIUvgm" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -58,7 +58,7 @@ const users= [
         location:"France",
         genre:"Indie pop, indietronica, folk-pop, new wave",
         instrument:["Guitar", "Bass", "Keyboard"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/4Q3f2YYH4gQxWFS3WY5G3j?si=taybTYTISZmXbXbq9Z2_7Q",
+        spotifyLink:"https://open.spotify.com/artist/4Q3f2YYH4gQxWFS3WY5G3j?si=taybTYTISZmXbXbq9Z2_7Q",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/4Q3f2YYH4gQxWFS3WY5G3j" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -74,7 +74,7 @@ const users= [
         location:"USA",
         genre:"AmericanaCountryEDMPopPop-RockRock",
         instrument:["Ukelele", "Piano", "Sax"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/485uL27bPomh29R4JmQehQ?si=l23UB7fDRxCz-FHJHu8DGw",
+        spotifyLink:"https://open.spotify.com/artist/485uL27bPomh29R4JmQehQ?si=l23UB7fDRxCz-FHJHu8DGw",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/485uL27bPomh29R4JmQehQ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -90,7 +90,7 @@ const users= [
         location:"Taiwan",
         genre:"Pop",
         instrument:["Guitar","Violin"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/50DjkxUjr341CAWEf6mEXS?si=vhOodDd6SS-qav7VTdDXPw",
+        spotifyLink:"https://open.spotify.com/artist/50DjkxUjr341CAWEf6mEXS?si=vhOodDd6SS-qav7VTdDXPw",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/50DjkxUjr341CAWEf6mEXS" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -106,7 +106,7 @@ const users= [
         location:"New York",
         genre:"Baroque, popdream, poprock",
         instrument:[],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa?si=yVCTjA1_RoCkkDX4_sbaxw",
+        spotifyLink:"https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa?si=yVCTjA1_RoCkkDX4_sbaxw",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/00FQb4jTyendYWaN8pK0wa" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -122,7 +122,7 @@ const users= [
         location:"USA",
         genre:"Americana, Country, Electronic, Folk / Acoustic, Soft Pop",
         instrument:["Guitar","Keyboard"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/1I7oHjCjMrMUz66v67yJJu?si=SD9DPJfiS1C79b96-jfE_Q",
+        spotifyLink:"https://open.spotify.com/artist/1I7oHjCjMrMUz66v67yJJu?si=SD9DPJfiS1C79b96-jfE_Q",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/1I7oHjCjMrMUz66v67yJJu" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -138,7 +138,7 @@ const users= [
         location:"USA",
         genre:"EDM, Heavy Metal, Hip Hop, House, Pop, Pop-RockRock",
         instrument:["Keyboard","Bass"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/3iJJD5v7oIFUevW4N5w5cj?si=cemCvmtlSbW0TRrysh7t9A",
+        spotifyLink:"https://open.spotify.com/artist/3iJJD5v7oIFUevW4N5w5cj?si=cemCvmtlSbW0TRrysh7t9A",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/3iJJD5v7oIFUevW4N5w5cj" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
@@ -154,7 +154,7 @@ const users= [
         location:"Barcelona",
         genre:"Pop-RockRock",
         instrument:["Guitar"],  //checkbox https://soundbetter.com/s
-        spotyfyLink:"https://open.spotify.com/artist/4RskfpMo9xxUWtJmPaIaKF?si=mpIg3afDTfObbK_XqAxVZg",
+        spotifyLink:"https://open.spotify.com/artist/4RskfpMo9xxUWtJmPaIaKF?si=mpIg3afDTfObbK_XqAxVZg",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/4RskfpMo9xxUWtJmPaIaKF" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
         projectsJoined:[],
