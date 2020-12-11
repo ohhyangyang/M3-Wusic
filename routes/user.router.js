@@ -53,9 +53,9 @@ router.get('/users/:userId', isLoggedIn, (req,res,next)=>{
 //PUT  'api/users/:userId'  => edit profile
 router.put('/users/:userId', isLoggedIn, (req,res,next)=>{
     const {userId} = req.params;
-    const {username,profileURL,description,location,email,artistType,genre,instrument,spotifyLink,spotifyEmbed}=req.body
+    const {username,profileURL,description,location,email,artistType,genre,instrument,spotifyLink}=req.body
     User
-     .findByIdAndUpdate(userId,{username,profileURL,description,location,email,artistType,genre,instrument,spotifyLink,spotifyEmbed},{new:true})
+     .findByIdAndUpdate(userId,{username,profileURL,description,location,email,artistType,genre,instrument,spotifyLink},{new:true})
      .then((updatedUser)=>{
          res.status(200).json(updatedUser)
      })

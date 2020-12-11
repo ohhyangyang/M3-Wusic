@@ -13,11 +13,10 @@ const userSchema = new Schema({
   genre:{type:String},
   instrument:[{type:String, enum:['Guitar', 'Piano', 'Sax', 'Violin', 'Horn', 'Drum', 'Trumpet', 'Ukelele', 'Accordion', "Bass", "Keyboard"], required: true}],  //checkbox https://soundbetter.com/s
   spotifyLink:{type:String},
-  spotifyEmbed:{type:String},
   projectsOwned: [{type:Schema.Types.ObjectId, ref:"Project"}],
   projectsJoined:[{type:Schema.Types.ObjectId, ref:"Project"}],
   likedUsers:[{type:Schema.Types.ObjectId, ref:"User"}],
-  playList:[{type:String}]
+  
   
 },
 {
