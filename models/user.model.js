@@ -16,7 +16,8 @@ const userSchema = new Schema({
   spotifyEmbed:{type:String},
   projectsOwned: [{type:Schema.Types.ObjectId, ref:"Project"}],
   projectsJoined:[{type:Schema.Types.ObjectId, ref:"Project"}],
-  likedUsers:[{type:Schema.Types.ObjectId, ref:"User"}]
+  likedUsers:[{type:Schema.Types.ObjectId, ref:"User"}],
+  playList:[{type:String}]
   
 },
 {

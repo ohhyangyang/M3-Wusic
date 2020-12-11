@@ -165,6 +165,20 @@ router.get('/projects/request/:projectId/:userId', isLoggedIn, (req,res,next)=>{
     })
 })
 
+//GET /api/projects/cancel-request/:projectId/:userId => send a request of project
+router.get('/projects/cancel-request/:projectId/:userId', isLoggedIn, (req,res,next)=>{
+  const {projectId,userId} = req.params;
+
+  Project
+  .findByIdAndUpdate(projectId,{$pull:{requests:userId}},{new:true})
+  .then((updatedProject)=>{
+      res.status(202).json(updatedProject)
+  })
+  .catch((err)=>{
+      next(createError(err));
+  })
+})
+
 
 
 

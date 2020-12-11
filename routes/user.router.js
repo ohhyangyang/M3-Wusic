@@ -97,4 +97,22 @@ router.get('/users/like/:userId', isLoggedIn, (req,res,next)=>{
     })
 })
 
+//GET 'api/users/dislike/:userId'  =>dislike a user
+router.get('/users/dislike/:userId', isLoggedIn, (req,res,next)=>{
+  const {userId} = req.params;
+  const cookieGuyId = req.session.currentUser._id
+  console.log("cookieGuyId",cookieGuyId)
+  console.log("userId",userId)
+  User
+    .findByIdAndUpdate(cookieGuyId,{$pull:{likedUsers:userId}},{new:true})
+    .then((updatedUser)=>{
+        res
+          .status(200)
+          .json(updatedUser)
+    })
+    .catch((err)=>{
+      next(createError(err));
+  })
+})
+
 module.exports=router

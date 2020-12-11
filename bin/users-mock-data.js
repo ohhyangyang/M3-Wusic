@@ -105,7 +105,7 @@ const users= [
         artistType:["Singer","Songwriter"],  //checkbox  https://soundbetter.com/s
         location:"New York",
         genre:"Baroque, popdream, poprock",
-        instrument:[],  //checkbox https://soundbetter.com/s
+        instrument:["Piano"],  //checkbox https://soundbetter.com/s
         spotifyLink:"https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa?si=yVCTjA1_RoCkkDX4_sbaxw",
         spotifyEmbed:'<iframe src="https://open.spotify.com/embed/artist/00FQb4jTyendYWaN8pK0wa" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>',
         projectsOwned: [],
