@@ -9,9 +9,9 @@ const userSchema = new Schema({
   description: {type: String, maxLength: 1000},
   location:{type:String},
   email:{type:String, required:true},
-  artistType:[{type:String,enum:['Singer', 'Rapper', 'Composer', 'Mixing engineer', 'Producer', 'Songwriter', 'Sound designer', 'Beatmaker'], required: true}],  //checkbox  https://soundbetter.com/s
+  artistType:[{type:Object, required: true}],  //checkbox  https://soundbetter.com/s
   genre:{type:String},
-  instrument:[{type:String, enum:['Guitar', 'Piano', 'Sax', 'Violin', 'Horn', 'Drum', 'Trumpet', 'Ukelele', 'Accordion', "Bass", "Keyboard"], required: true}],  //checkbox https://soundbetter.com/s
+  instrument:[{type:Object, required: true}],  //checkbox https://soundbetter.com/s
   spotifyLink:{type:String},
   projectsOwned: [{type:Schema.Types.ObjectId, ref:"Project"}],
   projectsJoined:[{type:Schema.Types.ObjectId, ref:"Project"}],

@@ -41,17 +41,23 @@ router.get('/projects', isLoggedIn, (req,res,next)=>{
 router.post('/projects', isLoggedIn, (req,res,next)=>{
     const {title,type,lookingFor, location, fee, coverURL, description} = req.body;
     
-    //filter input value
-    if(title==="" || type==="" || lookingFor===""){
-        res.status(400).json({ message: "Title type and lookingFor can't be empty" });
-        return;
-    }
-
+    // //filter input value
+    // if(title==="" || type==="" || lookingFor===""){
+    //     res.status(400).json({ message: "Title type and lookingFor can't be empty" });
+    //     return;
+    // }
+    console.log("owner",req.session.currentUser._id)
     Project.create({title, type, lookingFor, location, fee, coverURL, description, status:"open", owner:req.session.currentUser._id})
        .then((createdProject)=>{
-           res
-             .status(201)
-             .json(createdProject)
+         console.log(createdProject)
+         const newProjectId=createdProject._id
+         User.findByIdAndUpdate(req.session.currentUser._id, {$push:{projectsOwned:newProjectId}},{new:true})
+           .then((updatedUser)=>{
+            res
+            .status(201)
+            .json(updatedUser)
+           })
+           
        })
        .catch((err)=>{
         next(createError(err));
@@ -102,9 +108,13 @@ router.delete('/projects/:projectId', isLoggedIn, (req,res,next)=>{
 
     Project.findByIdAndRemove(projectId)
       .then(()=>{
+        User.findByIdAndUpdate(req.session.currentUser._id, {$pull:{projectsOwned:projectId}},{new:true})
+        .then((updatedUser)=>{
           res
             .status(202)
             .send(`Document ${projectId} was removed successfully.`)
+        })
+          
       })
       .catch( (err) => {
         next(createError(err));

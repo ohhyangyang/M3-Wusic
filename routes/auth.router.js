@@ -19,9 +19,9 @@ router.post('/signup', isNotLoggedIn, validationLogin, (req, res, next) => {
   User.findOne({ username })
     .then( (foundUser) => {
 
-      if (foundUser) {
+      if (foundUser) { 
         // If username is already taken, then return error response
-        return next( createError(400) ); // Bad Request
+        return next( createError(400,"Username exisits") ); // Bad Request
       }
       else {
         // If username is available, go and create a new user

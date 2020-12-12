@@ -70,9 +70,13 @@ router.delete('/users/:userId', isLoggedIn, (req,res,next)=>{
     User
      .findByIdAndRemove(userId)
      .then(()=>{
-        res
-        .status(202)
-        .send(`User ${userId} was removed successfully.`)
+       Project.deleteMany({owner:userId})
+         .then(()=>{
+          res
+          .status(202)
+          .send(`User ${userId} and his/her projects were removed successfully.`)
+         })
+        
      })
      .catch( (err) => {
         next(createError(err));
