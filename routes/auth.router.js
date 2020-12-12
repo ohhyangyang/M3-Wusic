@@ -21,7 +21,7 @@ router.post('/signup', isNotLoggedIn, validationLogin, (req, res, next) => {
 
       if (foundUser) { 
         // If username is already taken, then return error response
-        return next( createError(400,"Username exisits") ); // Bad Request
+        return next( createError(400,"Username already exisits") ); // Bad Request
       }
       else {
         // If username is available, go and create a new user
@@ -62,7 +62,7 @@ router.post('/login', isNotLoggedIn, validationLogin, (req, res, next) => {
     .then( (user) => {
       if (! user) {
         // If user with that username can't be found, respond with an error
-        return next( createError(404)  );  // Not Found
+        return next( createError(404,"User not found")  );  // Not Found
       }
 
       const passwordIsValid = bcrypt.compareSync(password, user.password); //  true/false
@@ -78,7 +78,7 @@ router.post('/login', isNotLoggedIn, validationLogin, (req, res, next) => {
 
       }
       else {
-        next( createError(401) ); // Unathorized
+        next( createError(401,"Incorrect password, try again") ); // Unathorized
       }
 
     })
