@@ -130,8 +130,12 @@ router.get('/projects/acceptation/:projectId/:userId', isLoggedIn, (req,res,next
     
        .then(()=>{
           Project.findByIdAndUpdate(projectId,{$push:{participants:userId}},{new:true})
-            .then((updatedProject)=>{             
-                res.status(202).json(updatedProject)
+            .then((updatedProject)=>{      
+               User.findByIdAndUpdate(userId,{$push:{projectsJoined:projectId}},{new:true})
+               .then((updatedUser)=>{
+                res.status(202).json(updatedUser)
+               })
+                
             })
             .catch( (err) => {
                 next(createError(err));

@@ -2,7 +2,7 @@ const projects=[
     {
         title:"8 songs production",
         type:"Song production",
-        lookingFor:["Mixing engineers","Beatmaker","Piano"],
+        lookingFor:[{value:"Mixing engineers",label:"Mixing engineers"},{value:"Beatmaker",label:"Beatmaker"},{value:"Piano",label:"Piano"}],
         location:"online",
         fee:"500euros per song",
         coverURL:"https://cms-assets.tutsplus.com/uploads/users/114/posts/34296/image/Final-image.jpg",
@@ -15,7 +15,7 @@ const projects=[
     {
         title:"Need a songwriter for my movie",
         type:"Movies&TV",
-        lookingFor:['Songwriter'],
+        lookingFor:[{value:"Songwriter",label:"Songwriter"}],
         location:"online",
         fee:"800euros",
         coverURL:"https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/star-is-born-web.jpg",
@@ -28,7 +28,7 @@ const projects=[
     {
         title:"5 songs recording",
         type:"Recording",
-        lookingFor:['Producer'],
+        lookingFor:[{value:"Producer",label:"Producer"}],
         location:"online",
         fee:"500euros per song",
         coverURL:"https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/12/attachment_68585523.jpg?auto=format&q=60&fit=max&w=930",
@@ -41,7 +41,7 @@ const projects=[
     {
         title:"Need a vokal for my live",
         type:"Live",
-        lookingFor:['Singer'],
+        lookingFor:[{value:"Singer",label:"Singer"}],
         location:"Barcelona",
         fee:"500euros",
         coverURL:"https://i.etsystatic.com/18113084/r/il/251a2f/1656261482/il_794xN.1656261482_nq8h.jpg",
@@ -53,7 +53,7 @@ const projects=[
     {
         title:"Looking for a bass player for my band",
         type:"Live",
-        lookingFor:['Bass'],
+        lookingFor:[{value:"Bass",label:"Bass"}],
         location:"Barcelona",
         fee:"",
         coverURL:"https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/pp8-faded-blueprint-fender-precision-bass-guitar-patent-poster-cole-borders.jpg",
@@ -66,7 +66,7 @@ const projects=[
     {
         title:"A song for my TV program",
         type:"Movies&TV",
-        lookingFor:['Songwriter'],
+        lookingFor:[{value:"Songwriter",label:"Songwriter"}],
         location:"online",
         fee:"1000euros",
         coverURL:"https://1.bp.blogspot.com/-rNa0PPt7rAI/X2zSl4zgwjI/AAAAAAACfvc/Vakw6T076r0SOcEYhlXsmPDe96UAkwh-QCLcBGAsYHQ/s1185/EisgFXpWoAcDSiA.jpg",
@@ -79,7 +79,7 @@ const projects=[
     {
         title:"10 songs production",
         type:"Song production",
-        lookingFor:['Producer'],
+        lookingFor:[{value:"Producer",label:"Producer"}],
         location:"online",
         fee:"200euros per song",
         coverURL:"https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg",
@@ -91,7 +91,7 @@ const projects=[
     {
         title:"Looking for a violinist for my concert",
         type:"Live",
-        lookingFor:['Violin'],
+        lookingFor:[{value:"Violin",label:"Violin"}],
         location:"Barcelona",
         fee:"400euros",
         coverURL:"https://image.posterlounge.es/images/l/1884576.jpg",
@@ -104,7 +104,7 @@ const projects=[
     {
         title:"2 songs recording",
         type:"Recording",
-        lookingFor:['Producer'],
+        lookingFor:[{value:"Producer",label:"Producer"}],
         location:"online",
         fee:"200euros per song",
         coverURL:"https://static.flickr.com/44/127823480_cb793fd725.jpg",
@@ -117,7 +117,7 @@ const projects=[
     {
         title:"Need a sax player for my concert",
         type:"Live",
-        lookingFor:['Sax'],
+        lookingFor:[{value:"Sax",label:"Sax"}],
         location:"Barcelona",
         fee:"400euros",
         coverURL:"https://images.photowall.com/products/53145/sax.jpg?h=699&q=85",
