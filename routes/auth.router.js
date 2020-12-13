@@ -28,7 +28,7 @@ router.post('/signup', isNotLoggedIn, validationLogin, (req, res, next) => {
         const salt = bcrypt.genSaltSync(saltRounds);
         const encryptedPassword = bcrypt.hashSync(password, salt);
 
-        User.create( { username, password, email, artistType, instrument })
+        User.create( { username, password:encryptedPassword, email, artistType, instrument })
           .then( (createdUser) => {
             // set the `req.session.currentUser` using newly created user object, to trigger creation of the session and cookie
             createdUser.password = "*";
@@ -66,6 +66,7 @@ router.post('/login', isNotLoggedIn, validationLogin, (req, res, next) => {
       }
 
       const passwordIsValid = bcrypt.compareSync(password, user.password); //  true/false
+      console.log
 
       if (passwordIsValid) {
         // set the `req.session.currentUser`, to trigger creation of the session
