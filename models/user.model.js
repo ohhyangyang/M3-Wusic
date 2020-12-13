@@ -5,7 +5,7 @@ const userSchema = new Schema({
   username: {type: String, required: true, unique: true},
   
   password:{type: String, required:true},
-  profileURL:{type: String, default:"/images/default_user_image.png"},
+  profileURL:{type: String, default:"/images/default_musician.png"},
   description: {type: String, maxLength: 1000},
   location:{type:String},
   email:{type:String, required:true},
