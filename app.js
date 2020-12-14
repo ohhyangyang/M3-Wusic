@@ -34,8 +34,8 @@ app.use(
     credentials: true,
     origin: [
       process.env.PUBLIC_DOMAIN,
-      'http://m3-wusic.herokuapp.com',
-    'https://m3-wusic.herokuapp.com'
+      'http://wusic-app.herokuapp.com',
+      'https://wusic-app.herokuapp.com'
     ],
     
   }),
