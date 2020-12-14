@@ -193,6 +193,37 @@ router.get('/projects/cancel-request/:projectId/:userId', isLoggedIn, (req,res,n
   })
 })
 
+//GET /api/projects/open/:projectId=> set project status to open
+router.get('/projects/open/:projectId', isLoggedIn, (req,res,next)=>{
+  const {projectId}=req.params;
+
+  Project
+  .findByIdAndUpdate(projectId,{$set:{status:"open"}},{new:true})
+  .then((updatedProject)=>{
+    res.status(202).json(updatedProject)
+  })
+  .catch((err)=>{
+    next(createError(err));
+})
+})
+
+
+
+
+//GET /api/projects/close/:projectId=> set project status to close
+router.get('/projects/close/:projectId', isLoggedIn, (req,res,next)=>{
+  const {projectId}=req.params;
+  console.log(projectId)
+
+  Project
+  .findByIdAndUpdate(projectId,{$set:{status:"close"}},{new:true})
+  .then((updatedProject)=>{
+    res.status(202).json(updatedProject)
+  })
+  .catch((err)=>{
+    next(createError(err));
+})
+})
 
 
 
