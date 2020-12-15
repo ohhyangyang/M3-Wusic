@@ -33,11 +33,10 @@ app.use(
   cors({
     credentials: true,
     origin: [
-      process.env.PUBLIC_DOMAIN,
-      'http://wusic-app.herokuapp.com',
-      'https://wusic-app.herokuapp.com'
+      'http://localhost:3000', 
+      'http://wusic-app.herokuapp.com',         // <-- ADD
+      'https://wusic-app.herokuapp.com' 
     ],
-    
   }),
 );
 
