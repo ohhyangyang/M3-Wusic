@@ -50,8 +50,6 @@ There are lots of musicians available worldwide. But, there is limited access to
 | PATH                             | COMPONENT     | PERMISSION       | BEHAVIOUR                                                    |
 | :------------------------------- | ------------- | ---------------- | ------------------------------------------------------------ |
 | `/wusic`                         | Landing Page  | `<AnonRoute>`    | Landing Wusic                                                |
-| `/signup`                        | Signup        | `<AnonRoute>`    | Signup form, redirect to the Dashboard after signup          |
-| `/login`                         | Login         | `<AnonRoute>`    | Login form, redirect to the Dashboard after Login            |
 | `/wusic/dashboard`               | Dashboard     | `<PrivateRoute>` | Show the ongoing projects, joined projects and the liked artist of the user |
 | `/wusic/musicians`               | MusicianList  | `<PrivateRoute>` | Show all the Musicians                                       |
 | `/wusic/musicians/:userId`       | Profile       | `<PrivateRoute>` | Show user or an artist's profile                             |
