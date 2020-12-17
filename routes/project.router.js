@@ -40,16 +40,10 @@ router.get('/projects', isLoggedIn, (req,res,next)=>{
 //POST  '/api//projects'   => create a project
 router.post('/projects', isLoggedIn, (req,res,next)=>{
     const {title,type,lookingFor, location, fee, coverURL, description} = req.body;
-    
-    // //filter input value
-    // if(title==="" || type==="" || lookingFor===""){
-    //     res.status(400).json({ message: "Title type and lookingFor can't be empty" });
-    //     return;
-    // }
-    console.log("owner",req.session.currentUser._id)
+ 
+   
     Project.create({title, type, lookingFor, location, fee, coverURL, description, status:"open", owner:req.session.currentUser._id})
        .then((createdProject)=>{
-         console.log(createdProject)
          const newProjectId=createdProject._id
          User.findByIdAndUpdate(req.session.currentUser._id, {$push:{projectsOwned:newProjectId}},{new:true})
            .then((updatedUser)=>{
@@ -213,7 +207,7 @@ router.get('/projects/open/:projectId', isLoggedIn, (req,res,next)=>{
 //GET /api/projects/close/:projectId=> set project status to close
 router.get('/projects/close/:projectId', isLoggedIn, (req,res,next)=>{
   const {projectId}=req.params;
-  console.log(projectId)
+
 
   Project
   .findByIdAndUpdate(projectId,{$set:{status:"close"}},{new:true})

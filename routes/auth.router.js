@@ -66,7 +66,7 @@ router.post('/login', isNotLoggedIn, validationLogin, (req, res, next) => {
       }
 
       const passwordIsValid = bcrypt.compareSync(password, user.password); //  true/false
-      console.log
+    
 
       if (passwordIsValid) {
         // set the `req.session.currentUser`, to trigger creation of the session
