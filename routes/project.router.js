@@ -44,6 +44,7 @@ router.post('/projects', isLoggedIn, (req,res,next)=>{
    
     Project.create({title, type, lookingFor, location, fee, coverURL, description, status:"open", owner:req.session.currentUser._id})
        .then((createdProject)=>{
+
          const newProjectId=createdProject._id
          User.findByIdAndUpdate(req.session.currentUser._id, {$push:{projectsOwned:newProjectId}},{new:true})
            .then((updatedUser)=>{
@@ -207,7 +208,7 @@ router.get('/projects/open/:projectId', isLoggedIn, (req,res,next)=>{
 //GET /api/projects/close/:projectId=> set project status to close
 router.get('/projects/close/:projectId', isLoggedIn, (req,res,next)=>{
   const {projectId}=req.params;
-
+  console.log(projectId)
 
   Project
   .findByIdAndUpdate(projectId,{$set:{status:"close"}},{new:true})

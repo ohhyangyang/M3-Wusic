@@ -9,7 +9,7 @@ const projectSchema = new Schema(
     lookingFor:[{type:Object,required:true}],   //checkbox添加 (artistType + instrument)  https://soundbetter.com/jobs
     location:{type: String},
     fee:{type: String},
-    coverURL:{type: String, default:"/images/default_user_image.png"},
+    coverURL:{type: String, default:"/images/default_user_image.jpg"},
     description:{type: String, maxLength: 1000},
     status:{ type: String, enum: ["open", "close"] },
     requests:[{ type: Schema.Types.ObjectId, ref: "User" }],
